@@ -3,12 +3,35 @@
   <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width initial-scale=1.0'>
-    <title>Boilermaker</title>
+    <title>Three Finance</title>
     <link rel="stylesheet" href="/style.css" />
     <script defer src="/bundle.js"></script>
   </head>
   <body>
+    <div id="loader"><h1>Reticulating Splines...</h1></div>
     <div id="app"></div>
   </body>
+  <script>
+    let loader;
+    function loadNow(opacity) {
+      if (opacity <= 0) {
+        displayContent();
+      } else {
+        loader.style.opacity = opacity;
+        window.setTimeout(function() {
+          loadNow(opacity - 0.5)
+        }, 100)
+      }
+    }
+
+    function displayContent() {
+      loader.style.display = 'none';
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      loader = document.getElementById('loader');
+      loadNow(1);
+    })
+  </script>
 </html>
 
