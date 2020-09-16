@@ -9,6 +9,13 @@ export default class Spending extends Component {
     }
   }
 
+  componentDidMount() {
+    window.addEventListener(
+      'scroll',
+      console.log('scrolling now in spending.js file')
+    )
+  }
+
   editIncome = evt => {
     evt.preventDefault()
     this.setState({
